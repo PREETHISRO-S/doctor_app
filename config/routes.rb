@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :docs
   devise_for :consumers
   devise_for :users
   devise_scope :user do
