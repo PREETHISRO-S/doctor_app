@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :consumers
-  devise_for :doctor_users
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
