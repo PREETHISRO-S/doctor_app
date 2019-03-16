@@ -9,10 +9,28 @@
         </div>
 
         <div class="user-login">
-            <%= "Welcome #{current_user.full_name}" %>
+            <%= "Welcome #{current_user.email}" %>
             <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"logout"%>
         </div>
+        <% elsif consumer_signed_in? %>
+            <div class="nav-links">
+                <%= link_to "Dashboard", user_dashboard_index_path %>
+            </div>
 
+            <div class="user-login">
+                <%= "Welcome #{current_consumer.email}" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"logout"%>
+            </div>
+
+        <% elsif doc_signed_in? %>
+            <div class="nav-links">
+                <%= link_to "Dashboard", doctor_dashboard_index_path %>
+            </div>
+
+            <div class="user-login">
+                <%= "Welcome #{current_doc.email}" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"logout"%>
+            </div>
         <% else %>
           <div class="nav-links">
             <%= link_to "User - Sign in",  new_consumer_session_path %>

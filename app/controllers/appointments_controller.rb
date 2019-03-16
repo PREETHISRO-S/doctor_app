@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_appointment, only: [:show]
   before_action :set_doctor
   before_action :set_patients, only: [:new, :create]
