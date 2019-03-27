@@ -1,0 +1,22 @@
+<h3>All Users</h3>
+<table class="ui selectable celled striped table padded">
+  <thead>
+    <th class="center aligned">Frist Name</th>
+    <th class="center aligned">age</th>
+    <th class="center aligned">dob</th>
+    <th class="center aligned">Sex</th>
+    <th class="center aligned">state</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to "#{user.first_name}", user_path(user) %></td>
+        <td><%= user.age %></td>
+        <td><%= user.dob %></td>
+        <td><%= user.sex %></td>
+        <td><%= user.state %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

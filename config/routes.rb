@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  get 'activity/index'
   get 'user_dashboard/index'
   get 'doctor_dashboard/index'
   devise_for :docs

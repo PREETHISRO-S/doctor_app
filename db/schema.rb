@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_125113) do
+ActiveRecord::Schema.define(version: 2019_03_27_052704) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.string "hour"
+    t.string "burn_calories"
+    t.string "gain_calories"
+    t.date "activity_date"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "appointments", force: :cascade do |t|
-    t.bigint "patient_id"
-    t.bigint "doctor_id"
+    t.integer "patient_id"
+    t.integer "doctor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
@@ -73,8 +81,8 @@ ActiveRecord::Schema.define(version: 2019_03_15_125113) do
 
   create_table "notes", force: :cascade do |t|
     t.text "message"
-    t.bigint "user_id"
-    t.bigint "patient_id"
+    t.integer "user_id"
+    t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_notes_on_patient_id"
@@ -111,8 +119,4 @@ ActiveRecord::Schema.define(version: 2019_03_15_125113) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "patients"
-  add_foreign_key "notes", "patients"
-  add_foreign_key "notes", "users"
 end

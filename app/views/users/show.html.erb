@@ -1,0 +1,22 @@
+<h3><%= @user.first_name %>'s Acivities </h3>
+<table class="ui selectable celled striped table padded">
+  <thead>
+    <th class="center aligned">Activity Name</th>
+    <th class="center aligned">No. of hours</th>
+    <th class="center aligned">burn calories</th>
+    <th class="center aligned">gain calories</th>
+    <th class="center aligned">date</th>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.name %></td>
+        <td><%= activity.hour %></td>
+        <td><%= activity.burn_calories %></td>
+        <td><%= activity.gain_calories %></td>
+        <td><%= activity.activity_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
